@@ -1,5 +1,5 @@
 .data
-    mensaje_menu: .asciiz "\n--- Menu ---\n1. Decimal a Binario\n2. Binario a Decimal\n3. Generar Numero Aleatorio\n4. Salir\nIngrese una opcion: "
+    mensaje_menu: .asciiz "\n--- Menu ---\n1. Decimal a Binario\n2. Binario a Decimal\n3. Generar Numero Aleatorio Y Transformarlo A Binario\n4. Salir\nIngrese una opcion: "
     mensaje_decimal: .asciiz "\nIngrese un numero decimal (0-255): "
     mensaje_binario_resultado: .asciiz "\nEl numero binario es: "
     mensaje_binario: .asciiz "\nIngrese un numero binario (8 bits): "
@@ -104,6 +104,11 @@ generarNumeroAleatorio:
     li $v0, 1
     move $a0, $t1
     syscall
+    
+    move $a0, $t1
+    jal decimalABinario
+    j menu
+    
     jr $ra
 
 # --- Binario a Decimal ---
