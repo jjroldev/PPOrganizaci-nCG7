@@ -21,16 +21,17 @@ void decimalABinario(int decimal) {
 }
 
 // Función para convertir un número binario a decimal (Se asume que es de 8 bits el que se ingresa)
-int binarioADecimal(char *binario) {
+void binarioADecimal(char *binario) {
     int decimal = 0;
 
     // Convertir binario a decimal recorriendo de derecha a izquierda.
     for (int i = 7; i >= 0; i--) {
-        int bit = binario[i] - '0'; // Convertir el carácter a un número (0 o 1). ('0' - '0'= 0  '1' - '0' = 1)
-        decimal += bit * (int)pow(2, 7 - i);
+        if(binario[i]=='1'){
+	    decimal += bit * (int)pow(2, 7 - i);
     }
+}
 
-    return decimal;
+    printf("El numero decimal es: %d",decimal);
 }
 
 
